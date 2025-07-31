@@ -20,13 +20,12 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    /* Nouveau conteneur pour les boutons d'authentification */
+    /* Conteneur pour le bouton d'authentification */
     .auth-buttons {
       position: absolute;
       top: 25px;
       right: 25px;
       display: flex;
-      gap: 12px;
       z-index: 100;
     }
 
@@ -38,47 +37,26 @@
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       font-size: 0.95em;
       display: inline-block;
-      border: 2px solid transparent;
-    }
-
-    /* Style pour "Se connecter" (contour) */
-    .auth-button.login {
+      border: 2px solid #11905B;
       background-color: transparent;
-      border-color: #11905B;
       color: #11905B;
     }
 
-    .auth-button.login:hover {
+    .auth-button:hover {
       background-color: #11905B;
       color: white;
       transform: translateY(-2px);
     }
     
     @media (prefers-color-scheme: dark) {
-        .auth-button.login {
-            background-color: transparent;
-            border-color: #11905B;
-            color: #11905B;
+        .auth-button {
+            color: #11905B; /* Garde le texte vert sur fond sombre */
         }
-        .auth-button.login:hover {
+        .auth-button:hover {
             background-color: #11905B;
-            color: #f9fafb;
+            color: #f9fafb; /* Texte blanc pour le survol en mode sombre */
         }
     }
-
-
-    /* Style pour "S'identifier" (rempli) */
-    .auth-button.signup {
-      background-color: #11905B;
-      color: white;
-      border-color: #11905B;
-    }
-    
-    .auth-button.signup:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(17, 144, 91, 0.3);
-    }
-
 
     /* Mode sombre automatique */
     @media (prefers-color-scheme: dark) {
@@ -115,14 +93,14 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 0px; /* Réduit l'espace entre le logo et le texte à 0px */
+      gap: 0px; 
     }
 
     .logo {
       width: 140px;
       height: 140px;
       animation: logoFloat 3s ease-in-out infinite;
-      margin-bottom: 0px; /* Supprime la marge sous le logo */
+      margin-bottom: 0px; 
     }
 
     @keyframes logoFloat {
@@ -366,7 +344,6 @@
       transform: translateY(-1px) scale(1.02);
     }
 
-    /* Animation de pulsation pour attirer l'attention */
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.05); }
@@ -381,7 +358,6 @@
       animation: none;
     }
 
-    /* Responsive animations */
     @media (max-width: 768px) {
       h1 {
         font-size: 2.5em;
@@ -395,11 +371,9 @@
         transform: translateY(-5px) scale(1.01);
       }
       
-      /* Ajustement pour les boutons d'authentification sur mobile */
       .auth-buttons {
         top: 15px;
         right: 15px;
-        gap: 8px;
       }
       .auth-button {
         padding: 8px 18px;
@@ -407,7 +381,6 @@
       }
     }
 
-    /* Réduction du motion pour les utilisateurs qui préfèrent moins d'animations */
     @media (prefers-reduced-motion: reduce) {
       * {
         animation-duration: 0.01ms !important;
@@ -424,8 +397,7 @@
 <body>
   
   <div class="auth-buttons">
-    <a href="https://github.com/login/oauth/authorize" class="auth-button login">Se connecter</a>
-    <a href="https://github.com/login/oauth/authorize" class="auth-button signup">S'identifier</a>
+    <a href="https://github.com/login/oauth/authorize" class="auth-button">Se connecter</a>
   </div>
 
   <header>
