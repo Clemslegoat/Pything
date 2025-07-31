@@ -20,6 +20,66 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
+    /* Nouveau conteneur pour les boutons d'authentification */
+    .auth-buttons {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      display: flex;
+      gap: 12px;
+      z-index: 100;
+    }
+
+    .auth-button {
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 0.95em;
+      display: inline-block;
+      border: 2px solid transparent;
+    }
+
+    /* Style pour "Se connecter" (contour) */
+    .auth-button.login {
+      background-color: transparent;
+      border-color: #11905B;
+      color: #11905B;
+    }
+
+    .auth-button.login:hover {
+      background-color: #11905B;
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+        .auth-button.login {
+            background-color: transparent;
+            border-color: #11905B;
+            color: #11905B;
+        }
+        .auth-button.login:hover {
+            background-color: #11905B;
+            color: #f9fafb;
+        }
+    }
+
+
+    /* Style pour "S'identifier" (rempli) */
+    .auth-button.signup {
+      background-color: #11905B;
+      color: white;
+      border-color: #11905B;
+    }
+    
+    .auth-button.signup:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(17, 144, 91, 0.3);
+    }
+
+
     /* Mode sombre automatique */
     @media (prefers-color-scheme: dark) {
       body {
@@ -334,6 +394,17 @@
       .card:hover {
         transform: translateY(-5px) scale(1.01);
       }
+      
+      /* Ajustement pour les boutons d'authentification sur mobile */
+      .auth-buttons {
+        top: 15px;
+        right: 15px;
+        gap: 8px;
+      }
+      .auth-button {
+        padding: 8px 18px;
+        font-size: 0.9em;
+      }
     }
 
     /* Réduction du motion pour les utilisateurs qui préfèrent moins d'animations */
@@ -344,11 +415,7 @@
         transition-duration: 0.01ms !important;
       }
       
-      .card:hover {
-        transform: none;
-      }
-      
-      .cta button:hover {
+      .card:hover, .auth-button:hover, .cta button:hover {
         transform: none;
       }
     }
@@ -356,6 +423,10 @@
 </head>
 <body>
   
+  <div class="auth-buttons">
+    <a href="https://github.com/login/oauth/authorize" class="auth-button login">Se connecter</a>
+    <a href="https://github.com/login/oauth/authorize" class="auth-button signup">S'identifier</a>
+  </div>
 
   <header>
     <h1>
